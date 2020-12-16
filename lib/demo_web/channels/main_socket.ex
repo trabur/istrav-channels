@@ -1,11 +1,7 @@
-defmodule Backend.SFMChannel do
+defmodule DemoWeb.MainSocket do
   use Phoenix.Channel
-  def join("SFM", payload, socket) do
+  def join("MAIN", payload, socket) do
     {:ok, socket}
-  end
-
-  def redis_address() do
-    redis_address = Application.get_env(:backend, :redis_address) || "localhost"
   end
 
   ########
