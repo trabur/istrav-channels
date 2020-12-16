@@ -1,6 +1,6 @@
-defmodule DemoWeb.MainSocket do
+defmodule DemoWeb.MainChannel do
   use Phoenix.Channel
-  def join("MAIN", payload, socket) do
+  def join("MAIN", _payload, socket) do
     {:ok, socket}
   end
 
@@ -32,12 +32,12 @@ defmodule DemoWeb.MainSocket do
   ########
   # room
   ########
-  def handle_in("room:broadcast",  %{"room" => room, "payload" => payload}, socket) do
-    broadcast! socket, "room:#{room}", %{"payload": payload}
+  def handle_in("room:broadcast",  %{"room" => room, "message" => message}, socket) do
+    broadcast! socket, "room:#{room}", %{message: message}
     {:noreply, socket}
   end
   # handles any other subtopic as the room ID, for example `"room:12"`, `"room:34"`
-  def join("room:" <> id, payload, socket) do
+  def join("room:" <> _private_room_id, _params, socket) do
     {:ok, socket}
   end
 end

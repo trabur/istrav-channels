@@ -10,7 +10,7 @@ defmodule DemoWeb.Endpoint do
     signing_salt: "eoN3JSWz"
   ]
 
-  socket "/socket", DemoWeb.MainSocket,
+  socket "/socket", DemoWeb.UserSocket,
     websocket: true,
     longpoll: false
 
