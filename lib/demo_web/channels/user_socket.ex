@@ -4,7 +4,7 @@ defmodule DemoWeb.UserSocket do
   ## Channels
   channel "MAIN", DemoWeb.MainChannel
 
-  # check_origin: ["https://example.com", "//another.com:888", "//other.com"]
+  # check_origin: ["https://printedbasics.gigalixirapp.com"]
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
