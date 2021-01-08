@@ -1,8 +1,8 @@
 defmodule DemoWeb.MainChannel do
   use Phoenix.Channel
-  def join("MAIN", _payload, socket) do
-    {:ok, socket}
-  end
+  # def join("MAIN", _payload, socket) do
+  #   {:ok, socket}
+  # end
 
   ########
   # level
@@ -30,14 +30,29 @@ defmodule DemoWeb.MainChannel do
   end
 
   ########
-  # room
+  # room & vault
   ########
   def handle_in("room:broadcast",  %{"room" => room, "message" => message}, socket) do
     broadcast! socket, "room:#{room}", %{message: message}
     {:noreply, socket}
   end
-  # handles any other subtopic as the room ID, for example `"room:12"`, `"room:34"`
+  def handle_in("room:secure",  %{"vault" => vault, "message" => message}, socket) do
+    secret = System.get_env("LOCK")
+    broadcast! socket, "vault:#{vault}", %{key: secret, message: message}
+    {:noreply, socket}
+  end
+
+  # for example "room:12", "room:34"
   def join("room:" <> _private_room_id, _params, socket) do
     {:ok, socket}
+  end
+  # for example "vault:***"
+  def join("vault:" <> _private_room_id, params, socket) do
+    secret = System.get_env("LOCK")
+    if secret == params.key do
+      {:ok, socket}
+    else
+      {:noreply, socket}
+    end
   end
 end
