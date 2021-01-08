@@ -1,6 +1,14 @@
 defmodule DemoWeb.RoomChannel do
   use Phoenix.Channel
 
+  def join("room:lobby", _payload, socket) do
+    {:ok, socket}
+  end
+  # for example "room:12", "room:34"
+  def join("room:" <> _private_room_id, _params, socket) do
+    {:ok, socket}
+  end
+
   ########
   # level
   ########
@@ -37,13 +45,5 @@ defmodule DemoWeb.RoomChannel do
     secret = System.get_env("LOCK")
     broadcast! socket, "vault:#{vault}", %{key: secret, message: message}
     {:noreply, socket}
-  end
-
-  def join("room:lobby", _payload, socket) do
-    {:ok, socket}
-  end
-  # for example "room:12", "room:34"
-  def join("room:" <> _private_room_id, _params, socket) do
-    {:ok, socket}
   end
 end

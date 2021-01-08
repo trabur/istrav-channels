@@ -19,10 +19,10 @@ defmodule DemoWeb.UserSocket do
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
   @impl true
-  def connect(params, socket, connect_info) do
-    IO.puts("params: #{params}")
+  def connect(%{"key" => key}, socket, connect_info) do
+    IO.puts("key: #{key}")
     IO.puts("connect_info: #{connect_info}")
-    {:ok, socket}
+    {:ok, assign(socket, :key, key)}
   end
 
   # Socket id's are topics that allow you to identify all sockets for a given user:
