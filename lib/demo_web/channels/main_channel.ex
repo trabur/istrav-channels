@@ -1,8 +1,5 @@
 defmodule DemoWeb.MainChannel do
   use Phoenix.Channel
-  # def join("MAIN", _payload, socket) do
-  #   {:ok, socket}
-  # end
 
   ########
   # level
@@ -42,8 +39,7 @@ defmodule DemoWeb.MainChannel do
     {:noreply, socket}
   end
 
-  # for example "room:12", "room:34"
-  def join("room:" <> _private_room_id, _params, socket) do
+  def join("MAIN", _payload, socket) do
     {:ok, socket}
   end
   # for example "vault:***"
@@ -54,5 +50,9 @@ defmodule DemoWeb.MainChannel do
     else
       {:noreply, socket}
     end
+  end
+  # for example "room:12", "room:34"
+  def join("room:" <> _private_room_id, _params, socket) do
+    {:ok, socket}
   end
 end
