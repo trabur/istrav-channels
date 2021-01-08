@@ -2,7 +2,8 @@ defmodule DemoWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  channel "MAIN", DemoWeb.MainChannel
+  channel "ROOM", DemoWeb.RoomChannel
+  channel "VAULT", DemoWeb.VaultChannel
 
   # check_origin: ["https://printedbasics.gigalixirapp.com"]
 

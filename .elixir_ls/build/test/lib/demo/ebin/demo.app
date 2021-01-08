@@ -16,7 +16,8 @@
                         'Elixir.DemoWeb.PageLive','Elixir.DemoWeb.Router',
                         'Elixir.DemoWeb.Router.Helpers',
                         'Elixir.DemoWeb.Telemetry',
-                        'Elixir.DemoWeb.UserSocket']},
+                        'Elixir.DemoWeb.UserSocket',
+                        'Elixir.DemoWeb.VaultChannel']},
               {registered,[]},
               {vsn,"0.1.0"},
               {mod,{'Elixir.Demo.Application',[]}}]}.

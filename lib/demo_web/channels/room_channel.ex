@@ -27,7 +27,7 @@ defmodule DemoWeb.MainChannel do
   end
 
   ########
-  # room & vault
+  # room
   ########
   def handle_in("room:broadcast",  %{"room" => room, "message" => message}, socket) do
     broadcast! socket, "room:#{room}", %{message: message}
@@ -39,17 +39,8 @@ defmodule DemoWeb.MainChannel do
     {:noreply, socket}
   end
 
-  def join("MAIN", _payload, socket) do
+  def join("ROOM", _payload, socket) do
     {:ok, socket}
-  end
-  # for example "vault:***"
-  def join("vault:" <> _private_room_id, params, socket) do
-    secret = System.get_env("LOCK")
-    if secret == params.key do
-      {:ok, socket}
-    else
-      {:noreply, socket}
-    end
   end
   # for example "room:12", "room:34"
   def join("room:" <> _private_room_id, _params, socket) do
