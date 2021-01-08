@@ -43,7 +43,12 @@ defmodule DemoWeb.RoomChannel do
   end
   def handle_in("room:secure",  %{"vault" => vault, "message" => message}, socket) do
     secret = System.get_env("LOCK")
-    broadcast! socket, "vault:#{vault}", %{key: secret, message: message}
+
+    # broadcast! socket, , %{key: secret, message: message}
+    # is the same as below
+    DemoWeb.Endpoint.broadcast "vault:lobby", "vault:broadcast", %{
+      key: secret, vault: vault, message: message
+    }
     {:noreply, socket}
   end
 end
