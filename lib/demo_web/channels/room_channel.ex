@@ -39,7 +39,7 @@ defmodule DemoWeb.RoomChannel do
     {:noreply, socket}
   end
 
-  def join("ROOM", _payload, socket) do
+  def join("room:lobby", _payload, socket) do
     {:ok, socket}
   end
   # for example "room:12", "room:34"

@@ -14,7 +14,7 @@ defmodule DemoWeb.VaultChannel do
     {:noreply, socket}
   end
 
-  def join("VAULT", _payload, socket) do
+  def join("vault:lobby", _payload, socket) do
     {:ok, socket}
   end
   # for example "vault:***"

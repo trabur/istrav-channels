@@ -2,8 +2,8 @@ defmodule DemoWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  channel "ROOM", DemoWeb.RoomChannel
-  channel "VAULT", DemoWeb.VaultChannel
+  channel "room:*", DemoWeb.RoomChannel
+  channel "vault:*", DemoWeb.VaultChannel
 
   # check_origin: ["https://printedbasics.gigalixirapp.com"]
 
@@ -19,7 +19,9 @@ defmodule DemoWeb.UserSocket do
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
   @impl true
-  def connect(_params, socket, _connect_info) do
+  def connect(params, socket, connect_info) do
+    IO.puts("params: #{params}")
+    IO.puts("connect_info: #{connect_info}")
     {:ok, socket}
   end
 
