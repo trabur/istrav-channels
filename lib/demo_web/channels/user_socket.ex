@@ -19,9 +19,7 @@ defmodule DemoWeb.UserSocket do
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
   @impl true
-  def connect(%{"key" => key}, socket, connect_info) do
-    IO.puts("key: #{key}")
-    IO.puts("connect_info: #{connect_info}")
+  def connect(%{"key" => key}, socket, _connect_info) do
     {:ok, assign(socket, :key, key)}
   end
 
