@@ -23,7 +23,7 @@ defmodule DemoWeb.VaultChannel do
     if secret == params.key do
       {:ok, socket}
     else
-      {:noreply, socket}
+      {:error, %{reason: "unauthorized"}}
     end
   end
 end
