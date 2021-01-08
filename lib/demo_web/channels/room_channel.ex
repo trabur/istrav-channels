@@ -1,4 +1,4 @@
-defmodule DemoWeb.MainChannel do
+defmodule DemoWeb.RoomChannel do
   use Phoenix.Channel
 
   ########
