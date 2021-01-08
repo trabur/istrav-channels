@@ -5,12 +5,11 @@ defmodule DemoWeb.VaultChannel do
   # vault
   ########
 
-  def handle_in("vault:broadcast",  %{"vault" => vault, "message" => message}, socket) do
-    secret = System.get_env("LOCK")
-    broadcast! socket, "vault:#{vault}", %{key: secret, message: message}
+  def handle_in("vault:broadcast",  %{"key" => key, "vault" => vault, "message" => message}, socket) do
+    broadcast! socket, "vault:#{vault}", %{key: key, message: message}
     {:noreply, socket}
   end
-  def handle_in("vault:release",  %{"room" => room, "message" => message}, socket) do
+  def handle_in("vault:release",  %{"key" => _key, "room" => room, "message" => message}, socket) do
     broadcast! socket, "room:#{room}", %{message: message}
     {:noreply, socket}
   end
