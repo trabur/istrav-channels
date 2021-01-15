@@ -10,7 +10,7 @@ defmodule DemoWeb.VehiclesChannel do
   end
 
   def chan() do
-    {:ok, conn} = AMQP.Connection.open("amqps://eogqfdef:Z7sQOuxd2cRIogSBgD0TZtMXfMjUY5og@owl.rmq.cloudamqp.com/eogqfdef")
+    {:ok, conn} = AMQP.Connection.open("amqp://eogqfdef:Z7sQOuxd2cRIogSBgD0TZtMXfMjUY5og@owl.rmq.cloudamqp.com/eogqfdef")
     {:ok, chan} = AMQP.Channel.open(conn)
     _chan = chan
   end
