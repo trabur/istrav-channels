@@ -41,13 +41,4 @@ defmodule DemoWeb.RoomChannel do
     broadcast! socket, "room:#{room}", %{message: message}
     {:noreply, socket}
   end
-  def handle_in("room:secure",  %{"vault" => vault, "message" => message}, socket) do
-    secret = System.get_env("LOCK")
-
-    # https://hexdocs.pm/phoenix/Phoenix.Channel.html#module-broadcasting-to-an-external-topic
-    DemoWeb.Endpoint.broadcast_from!(self(), "vault:lobby", "vault:broadcast", %{
-      key: secret, vault: vault, message: message
-    })
-    {:noreply, socket}
-  end
 end

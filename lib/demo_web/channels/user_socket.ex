@@ -3,7 +3,7 @@ defmodule DemoWeb.UserSocket do
 
   ## Channels
   channel "room:*", DemoWeb.RoomChannel
-  channel "vault:*", DemoWeb.VaultChannel
+  channel "vehicles:*", DemoWeb.VehiclesChannel
 
   # check_origin: ["https://printedbasics.gigalixirapp.com"]
 
