@@ -13,7 +13,7 @@ defmodule DemoWeb.EventsChannel do
   # events
   ########
   def handle_in("events:broadcast",  %{"room" => room, "message" => message}, socket) do
-    broadcast! socket, "room:#{room}", %{message: message}
+    broadcast! socket, "events:#{room}", %{message: message}
     {:noreply, socket}
   end
 end
