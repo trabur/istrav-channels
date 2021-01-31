@@ -2,8 +2,8 @@ defmodule DemoWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  channel "room:*", DemoWeb.RoomChannel
-  channel "vehicles:*", DemoWeb.VehiclesChannel
+  channel "events:*", DemoWeb.EventsChannel
+  # channel "vehicles:*", DemoWeb.VehiclesChannel
 
   # check_origin: ["https://istrav.gigalixirapp.com"]
 
