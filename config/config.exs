@@ -12,7 +12,7 @@ config :demo,
 
 # Configures the endpoint
 config :demo, DemoWeb.Endpoint,
-  url: [host: "printedbasics.gigalixirapp.com"],
+  url: [host: "istrav.gigalixirapp.com"],
   secret_key_base: "eGf+GIi+8MmoJk7+JNaYHZUudpwjXpRZzcHBzaP4AMuUUAW0lidZ54ITOSQrlGcU",
   render_errors: [view: DemoWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Demo.PubSub,
