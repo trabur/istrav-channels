@@ -14,12 +14,8 @@ $ mix phx.server
 > Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## hosting
-from gigalixir.com:
-```bash
-$ git remote add gigalixir https://travis.burandt%40gmail.com:d042f000-a2da-4e1f-bd8a-4612c63c5e8a@git.gigalixir.com/istrav.git
-$ git push gigalixir master
-```
-> After a minute, visit https://istrav.gigalixirapp.com/
+gigalixir.com:
+> checkout https://istrav.gigalixirapp.com/
 
 
 ## init
